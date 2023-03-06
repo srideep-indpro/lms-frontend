@@ -1,0 +1,18 @@
+<div *ngIf="toolbarService.visible">
+        <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                                <mat-icon> terrain</mat-icon>
+                        </button>
+                        <span>LMS</span>
+                        <span class="example-spacer"></span>
+                        <div>
+                                <a mat-button [routerLink]="'/courses'"> Search Courses </a>
+                                <a mat-button [routerLink]="'/courses-admin'"> Manage Courses </a>
+                                <a mat-button [routerLink]="'/login'" *ngIf="!courseService.isAuthenticated()"> Log in</a>
+                                <a mat-button  (click)="logout()" *ngIf="courseService.isAuthenticated()"> Log out</a>
+                        </div>
+                </mat-toolbar-row>
+
+        </mat-toolbar>
+</div>

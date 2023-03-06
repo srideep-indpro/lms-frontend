@@ -1,0 +1,42 @@
+<div style="margin: 40px;">
+  <div style="margin-left: 40px;">
+    <h2 >Search Courses</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <form [formGroup]="searchCourseForm" class="example-form">
+          <mat-form-field class="search-input">
+            <input formControlName="searchParam" matInput placeholder="search courses...">
+          </mat-form-field>
+        </form>
+      </div>
+      
+      <div class="col-sm-2 mt-2">
+        <button mat-raised-button color="primary" (click)="submitSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <div class="container mt-5" *ngIf="dataSource && dataSource.length > 0">
+    <mat-accordion *ngFor="let item of dataSource;">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{item.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            Duration: {{item.duration}} hr,
+            Technology: {{item.technology}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{item.description}}</p>
+        <p>Launch URL: <a href="https://{{item.launchURL}}">{{item.launchURL}}</a></p>
+      </mat-expansion-panel>
+      <br />
+    </mat-accordion>
+  </div>
+
+
+</div>

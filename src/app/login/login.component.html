@@ -1,0 +1,29 @@
+<div class="container" style="width:30%;margin-top: 100px;"> 
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+        <mat-card-subtitle>LMS</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <form [formGroup] = "loginForm">
+            <div class="row">
+                <mat-form-field class="search-input" >
+                    <mat-label>Username</mat-label>
+                    <input formControlName = "userName"  matInput placeholder="Enter your username">
+                </mat-form-field>
+                <mat-form-field class="search-input">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName = "password" placeholder="Enter your password">
+                </mat-form-field>
+            </div>
+                
+        </form>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+        Don't have an account? register <a [routerLink]="'/register'"> here. </a>
+        
+    </mat-card-content>
+
+</mat-card>
+</div>
+  

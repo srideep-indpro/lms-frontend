@@ -1,0 +1,34 @@
+<div class="container" style="width:30%;margin-top: 100px;"> 
+    <p *ngIf="registrationSuccess" style="color: green; font-size: medium;">Success</p>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+            <mat-card-subtitle>LMS</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <form [formGroup] = "registerForm" >
+                <div class="row">
+                    <mat-form-field class="search-input" >
+                        <mat-label>Username</mat-label>
+                        <input formControlName = "userName"  matInput placeholder="Enter your username">
+                    </mat-form-field>
+                    <mat-form-field class="search-input" >
+                        <mat-label>Email</mat-label>
+                        <input formControlName = "userEmail"  matInput placeholder="Enter your email address">
+                    </mat-form-field>
+                    <mat-form-field class="search-input">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName = "userPassword" placeholder="Enter your password">
+                    </mat-form-field>
+                </div>
+                    
+            </form>
+            <button mat-raised-button color="primary" (click)="register()">Register</button>
+            Login <a [routerLink]="'/login'"> here. </a>
+        </mat-card-content>
+    
+</mat-card>
+
+</div>
+      
