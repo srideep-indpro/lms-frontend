@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'profile', component: ProfileComponent},
-  {path:'courses', component: SearchCoursesComponent,canActivate:[AuthGuard]},
+  {path:'courses', component: SearchCoursesComponent},
   {path:'courses-admin', component: AdminCourseListComponent,canActivate:[AuthGuard]},
 ];
 

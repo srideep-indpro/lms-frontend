@@ -36,14 +36,11 @@ export class RegisterComponent implements OnInit {
 
       this.courseService.registerUser(this.registerForm.value).subscribe({
          next: (res)=>{
-          console.log("success");
-          console.log(res);
           this.registrationSuccess = true; 
           this.registerForm.reset();
         },
         error:(err)=>{
           console.log(err);
-          // console.log("There is some error while saving the user.")
         }
       })
        

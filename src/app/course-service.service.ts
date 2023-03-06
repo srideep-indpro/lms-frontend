@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from './lms-model';
 
@@ -19,7 +19,7 @@ export class CourseService {
   }
 
   addCourse(data : any, userName : string) {
-    return this.httpClient.post<any>(`${this.baseCommandURL}/addOrUpdateCourse?loggedInUserName=${userName}`,data);
+    return this.httpClient.post(`${this.baseCommandURL}/addOrUpdateCourse?loggedInUserName=${userName}`,data,{responseType: 'text'});
   }
 
   deleteCourse(id : any){
@@ -30,8 +30,8 @@ export class CourseService {
      return this.httpClient.get<any>(`${this.baseQueryURL}/getCoursesByTechnology?technology=${param}`)
   }
 
-  registerUser(userDetails : any){
-    return this.httpClient.post<any>(`${this.baseUserServiceURL}/register`,userDetails);
+  registerUser(userDetails : any): Observable<string>{
+    return this.httpClient.post(`${this.baseUserServiceURL}/register`,userDetails,{responseType: 'text'});
   }
 
   login(loginCreds : any){
@@ -44,5 +44,15 @@ export class CourseService {
     }
     return false;
   }
+
+  isAdmin(){
+    if(localStorage.getItem('loginInfo')){
+    let roles: string[] = JSON.parse(localStorage.getItem('loginInfo') || '{}').userRole;
+    if(roles.includes('ROLE_ADMIN')){
+     return true;
+    }
+  }
+  return false;
+}
 
 }

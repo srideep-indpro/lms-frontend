@@ -5,11 +5,13 @@
 </div>  
 
 <div class="container">
-  <mat-form-field appearance="standard">
+  <div>
+  <mat-form-field appearance="standard"  style="background-color: darkgrey; height: 50px; margin-left: 50px;" >
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Java" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Java" #input >
   </mat-form-field>
-  <div class="mat-elevation-z8" style="margin-left: 50px;margin-right: 50px;">
+</div>
+  <div class="mat-elevation-z8" style="margin-left: 50px;margin-right: 30px; margin-top: 30px;">
     <table mat-table [dataSource]="dataSource" matSort>
   
       <ng-container matColumnDef="id">
@@ -58,7 +60,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        <td class="mat-cell" colspan="4">No data matching the filter</td>
       </tr>
     </table>
   
