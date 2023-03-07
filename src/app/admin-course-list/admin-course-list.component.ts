@@ -18,8 +18,6 @@ export class AdminCourseListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  // courses: Course[] = [];
-
   constructor(private courseService: CourseService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -44,7 +42,6 @@ export class AdminCourseListComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
   }
-
 
   getCourses(){
     this.courseService.getAllCoursesForAdmin().subscribe(data=>{

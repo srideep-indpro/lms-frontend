@@ -41,10 +41,10 @@ export class CourseDialogComponent implements OnInit {
     if(this.courseForm.valid){
       this.courseService.addCourse(this.courseForm.value,"ankita").subscribe({
         next: (res)=>{
-          
-          console.log("Course saved successfully.");
+          console.log(res);
           this.courseForm.reset();
           this.dialogRef.close();
+          
         },
         error:()=>{
           console.log("There is some error saving the course.")
